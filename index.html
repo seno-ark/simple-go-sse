@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go SSE</title>
+</head>
+<body>
+    <h1>SSE Client</h1>
+    <p>
+        Open your browser console or network (Network -> sse? -> EventStream) to view the incoming messages from the server.
+    </p>
+
+    <script>
+        const url = "http://localhost:3000/sse?username=web1"
+
+        const client = new EventSource(url)
+
+        console.log(client);
+
+        client.onopen = (event) => {
+            console.log("ONOPEN: The connection has been established.");
+            console.log(client.readyState);
+            console.log(event);
+        }
+
+        client.onerror = (event) => {
+            console.log("ONERROR: An error occurred while attempting to connect.");
+            console.log(client.readyState);
+            console.log(event);
+        }
+
+        client.onmessage = (event) => {
+            console.log("ONMESSAGE");
+            console.log(client.readyState);
+            console.log(event);
+            console.log(JSON.parse(event.data));
+        }
+    </script>
+</body>
+</html>
