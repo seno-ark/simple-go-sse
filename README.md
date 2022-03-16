@@ -2,9 +2,11 @@
 Simple SSE (Server Sent Event) implementation using Golang.
 
 # Run the project
+```
 git clone git@github.com:seno-ark/simple-go-sse.git
 cd simple-go-sse
 go run .
+```
 
 # Send message
 ```
