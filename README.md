@@ -14,6 +14,11 @@ curl "localhost:3000/send" -i -d "username=Foo" -d "message=Hello, world!"
 ```
 
 ### Listen to server events
+#### In terminal:
 ```
 curl "localhost:3000/sse?username=Bar"
+```
+#### In Browser:
+```
+open http://localhost:3000
 ```

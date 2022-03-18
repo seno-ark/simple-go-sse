@@ -112,7 +112,7 @@ func sseHandler(w http.ResponseWriter, r *http.Request) {
 
 		select {
 		case messageData := <-msgChan:
-			log.Printf("SENT Message to: %s", username)
+			log.Printf("SEND Message to: %s", username)
 			fmt.Fprintf(w, formatSSE("message", string(messageData)))
 			flusher.Flush()
 
